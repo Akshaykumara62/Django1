@@ -1,0 +1,37 @@
+<DOCTYPE html>
+<head> 
+	<title>Search Attendance Records Between 2 Date</title>
+</head>
+<body>
+	<centre>
+		<h1>Search/Filter The Attendance Between Two Given Dates</h1>
+		<h3>Django Attendance</h3>
+		<hr/>
+		<form method="POST">
+			{%csrf_token%}
+		From:<input type = "date" name="fromdate"/>
+		to:<input type="date" name ="todate"/>
+		<input type="submit" value= "search"/>
+		<hr/>
+		<table border="1">
+			<tr>
+				<th>Roll_Number</th>
+				<th>Class_Name</th>
+				<th>Subject</th>
+				<th>Date1</th>
+				<th>Time1</th>
+			</tr>
+			{%for result in data%}
+			<tr>
+				<td>{{result.rollnumber}}</td>
+				<td>{{result.classname}}</td>
+				<td>{{result.subject}}</td>
+				<td>{{result.Date1}}</td>
+				<td>{{result.Time1}}</td>
+			</tr>
+			{%endfor%}
+		</table>
+	</form>
+	</centre>	
+</body>
+</html>
